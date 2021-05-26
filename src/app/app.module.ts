@@ -9,6 +9,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartService } from './cart.service';
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -16,23 +18,24 @@ import { CartService } from './cart.service';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
-      {path:'products/:productId', component: ProductDetailsComponent}
-    ])
+      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'cart', component: CartComponent }
+    ]),
+    HttpClientModule,
+    
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
   providers: [CartService]
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /*
 Copyright Google LLC. All Rights Reserved.
